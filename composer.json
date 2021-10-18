@@ -1,0 +1,13 @@
+{
+    "name": "tomlankhorst/dokuwiki-plugin-forwardauth",
+    "description": "ForwardAuth plugin for Dokuwiki",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Tom Lankhorst",
+            "email": "hello@tomlankhorst.nl"
+        }
+    ],
+    "require": {}
+}
