@@ -19,8 +19,8 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
         $this->loadConfig();
 
         $this->header_name = (string) $this->conf['header_name'];
-        $this->default_groups = (array) $this->conf['default_groups'];
-        $this->admin_allowlist = (array) $this->conf['admin_allowlist'];
+        $this->default_groups = $this->csvToArray($this->conf['default_groups']);
+        $this->admin_allowlist = $this->csvToArray($this->conf['admin_allowlist']);
         $this->missing_header_error = (bool) $this->conf['missing_header_error'];
 
         $this->success = true;
@@ -60,6 +60,18 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
         $header = 'HTTP_'.$header;
 
         return $header;
+    }
+
+    protected function csvToArray(string $csv, string $sep = ',', bool $trim = true) {
+        $parts = explode($sep, $csv);
+
+        if ($trim) {
+            $parts = array_map(function($part){
+                return trim($part);
+            }, $parts);
+        }
+
+        return $parts;
     }
 
     public function logOff()
