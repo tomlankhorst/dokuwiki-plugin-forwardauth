@@ -72,7 +72,7 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
     {
         $groups = $this->default_groups;
 
-        if (in_array($user, $this->admin_allowlist)) {
+        if (in_array($user, $this->admin_allowlist) && !in_array('admin', $groups)) {
             $groups[] = 'admin';
         }
 
