@@ -1,0 +1,7 @@
+base   forwardauth
+author Tom Lankhorst
+email  tlankhorst@ethz.ch
+date   2021-10-18
+name   X-Forwarded-User auth plugin
+desc   Authenticate against X-Forwarded-User header, inserted by reverse proxy.
+url    https://github.com/tomlankhorst/dokuwiki-plugin-forwardauth
