@@ -11,6 +11,7 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
     protected $default_groups;
     protected $admin_allowlist;
     protected $missing_header_error;
+    protected $logout_url;
 
     public function __construct()
     {
@@ -22,6 +23,7 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
         $this->default_groups = $this->csvToArray($this->conf['default_groups']);
         $this->admin_allowlist = $this->csvToArray($this->conf['admin_allowlist']);
         $this->missing_header_error = (bool) $this->conf['missing_header_error'];
+        $this->logout_url = (string) $this->conf['logout_url'];
 
         $this->success = true;
 
@@ -76,7 +78,7 @@ class auth_plugin_forwardauth extends DokuWiki_Auth_Plugin
 
     public function logOff()
     {
-        header('Location: _oauth/logout');
+        header('Location: '.$this->logout_url);
         exit();
     }
 

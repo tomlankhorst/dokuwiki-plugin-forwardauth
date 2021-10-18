@@ -27,3 +27,7 @@ Users in this list additionally are assigned the `admin` group.
 
 Whether to bail out when the header is missing. 
 Might be an attempt to circumvent the authentication. 
+
+### `logout_url` 
+
+Redirect to this url to logout. 
